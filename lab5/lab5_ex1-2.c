@@ -18,8 +18,8 @@ int main(int argc, char* argv[]) {
 
     size_t PAGE_SIZE = getpagesize();
 
-    size_t shm size = (argc - 1) * PAGE_SIZE;
-    char shm name[] = "collatz_shm";
+    size_t shm_size = (argc - 1) * PAGE_SIZE;
+    char shm_name[] = "collatz_shm";
 
     int shm_fd = shm_open(shm_name, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
 

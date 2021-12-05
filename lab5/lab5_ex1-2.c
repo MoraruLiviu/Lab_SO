@@ -72,7 +72,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    for(i=1; i<argc; ++1) {
+    for(i=1; i<argc; ++i) {
         wait(NULL);
     }
 
@@ -80,7 +80,8 @@ int main(int argc, char* argv[]) {
         int* sir = buffer + (i-1) * PAGE_SIZE / sizeof(int);
         int size = sir[0];
         printf("%d: ", sir[1]);
-        for(int j = 2; i<=size); ++j){
+        int j;
+        for(j = 2; i<=size; ++j){
             printf("%d ", sir[j]);
         }
         printf("\n");

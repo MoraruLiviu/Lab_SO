@@ -5,10 +5,9 @@
 int main(int argc, char* argv[] ) {
 
     for(int i = 1; i <=argc; ++i) {
-
         pid_t pid = fork(); 
         if(pid== 0){
-            n = n = atoi(argv[1]);;
+            int n = atoi(argv[1]);
             printf("%d : %d", n,n);
 
             while(n != 1) {
@@ -16,7 +15,6 @@ int main(int argc, char* argv[] ) {
                     n /= 2;
                 else
                     n = 3*n +1;
-
                 printf(" %d", n);
             }
             printf("\nChild %d with Parent %d finished\n", getpid(), getppid());

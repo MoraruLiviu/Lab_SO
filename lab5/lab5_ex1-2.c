@@ -35,8 +35,8 @@ int main(int argc, char* argv[]) {
     }
 
     int* buffer = (int*) mmap(0, shm_size, PROT_READ| PROT_WRITE, MAP_SHARED, shm_fd, 0);
-
-    for(int i=1; i<argc; ++i) {
+    int i;
+    for(i=1; i<argc; ++i) {
         pid_t PID = fork();
 
         if(PID < 0) {
@@ -72,11 +72,11 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    for(int i=1; i<argc; ++1) {
+    for(i=1; i<argc; ++1) {
         wait(NULL);
     }
 
-    for (int i=1; i<argc; ++i){
+    for (i=1; i<argc; ++i){
         int* sir = buffer + (i-1) * PAGE_SIZE / sizeof(int);
         int size = sir[0];
         printf("%d: ", sir[1]);
